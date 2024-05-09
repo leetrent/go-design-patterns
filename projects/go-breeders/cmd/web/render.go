@@ -19,6 +19,7 @@ func (app *application) render(w http.ResponseWriter, t string, td *templateData
 	if app.config.useCache {
 		if templateFromMap, ok := app.templateMap[t]; ok {
 			tmpl = templateFromMap
+			log.Println("Using template in cache.")
 		}
 	}
 
@@ -28,7 +29,7 @@ func (app *application) render(w http.ResponseWriter, t string, td *templateData
 			log.Println("Error building template:", err)
 			return
 		}
-		log.Println("Building template from disk...")
+		log.Println("Building template from disk.")
 		tmpl = newTemplate
 	}
 
