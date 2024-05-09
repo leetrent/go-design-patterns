@@ -12,6 +12,8 @@ func (app *application) routes() http.Handler {
 	mux := chi.NewRouter()
 	mux.Use(middleware.Recoverer)
 	mux.Use(middleware.Timeout(30 * time.Second))
+
 	mux.Get("/", app.ShowHome)
+	mux.Get("/{page}", app.ShowPage)
 	return mux
 }
