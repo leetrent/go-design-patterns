@@ -1,5 +1,31 @@
 {{template "base" .}}
+{{define "css"}}
+<style>
+    .header-container {
+        background-image: url('/static/home-page/puppies.jpg');
+        background-size: cover;
+        opacity: 0.9;
+        width: 100vw;
+        height: 85vh;
+        position: relative;
+    }
+    @supports (background-image: -webkit-image-set(url('/static/home-page/puppies.webp') 1x)) {
+        .header-container {
+            background-image: -webkit-image-set (
+                url('/static/home-page/puppies.webp') 1x
+            )
+        }
+    }
+
+</style>
+{{end}}
 {{define "content"}}
+{{/* <img src="/static/home-page/puppies.jpg" alt="puppies" class="img img-fluid"/> */}}
+<div class="header-container">
+    <div class="header-child">
+        <h1 class="header-text">Go Find a Pet!</h1>
+    </div>
+</div>
 <div class="container">
     <div class="row">
         <div class="col">
